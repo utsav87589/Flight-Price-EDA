@@ -9,3 +9,8 @@ I am solving flight price dataset in this repo, by using the FE(Featured Enginee
 
  -handled rest of the columns that included additonal_info, no of stops, date of journey, arrival time, dep time, duration, soruce, destination
  -now the dataset is clean with no categorical column/null value
+
+ ### day 3 update
+
+ - saved the data files, made qq plot for the source, destination, no of stops columns
+ - made another file and setup the data for the testing algorithms 
