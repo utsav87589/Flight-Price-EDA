@@ -14,3 +14,10 @@ I am solving flight price dataset in this repo, by using the FE(Featured Enginee
 
  - saved the data files, made qq plot for the source, destination, no of stops columns
  - made another file and setup the data for the testing algorithms 
+
+ ### day 4 update 
+
+ -made the predictions on the dataset(X_test) using the following algorithms :
+ - Linear rgeression, SVM regression, KNN regression, Decision Tree regression, Random forest regressor, Ada boost regressor, Gradient boost regressor
+
+ - prepared report(part 1 basics, only)
