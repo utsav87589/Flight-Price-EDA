@@ -21,3 +21,8 @@ I am solving flight price dataset in this repo, by using the FE(Featured Enginee
  - Linear rgeression, SVM regression, KNN regression, Decision Tree regression, Random forest regressor, Ada boost regressor, Gradient boost regressor
 
  - prepared report(part 1 basics, only)
+
+ ### day 5 update
+
+ -made the complete report with the test data,
+ - started hitting on the eval data, reporting and predicstions pending yet alongside the outliers part
