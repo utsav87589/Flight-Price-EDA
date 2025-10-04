@@ -25,4 +25,9 @@ I am solving flight price dataset in this repo, by using the FE(Featured Enginee
  ### day 5 update
 
  -made the complete report with the test data,
- - started hitting on the eval data, reporting and predicstions pending yet alongside the outliers part
+ - started hitting on the eval data, reporting and predictions pending yet alongside the outliers part
+
+ ### day 6 update
+
+ -made changes in the graphs and made correct graphs,
+ - finished at predcitions on Eval data with other algorthms plus the reporting is also done
