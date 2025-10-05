@@ -30,4 +30,9 @@ I am solving flight price dataset in this repo, by using the FE(Featured Enginee
  ### day 6 update
 
  -made changes in the graphs and made correct graphs,
- - finished at predcitions on Eval data with other algorthms plus the reporting is also done
+ -finished at predcitions on Eval data with other algorthms plus the reporting is also done
+
+ ### day 7 update
+
+-removed outliers from the train and the test data, columns were duration_hours and price column
+-took time because I was trying to apply the transformations as well
