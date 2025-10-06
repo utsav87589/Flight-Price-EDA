@@ -36,3 +36,8 @@ I am solving flight price dataset in this repo, by using the FE(Featured Enginee
 
 -removed outliers from the train and the test data, columns were duration_hours and price column
 -took time because I was trying to apply the transformations as well
+
+### day 8 update
+
+-tested on the outliers and the report also completed, now moving to the X_test_new tomorrow
+-finishing the dataset tomorrow, will do anomaly detection in the furture on the same
