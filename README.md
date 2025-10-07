@@ -41,3 +41,8 @@ I am solving flight price dataset in this repo, by using the FE(Featured Enginee
 
 -tested on the outliers and the report also completed, now moving to the X_test_new tomorrow
 -finishing the dataset tomorrow, will do anomaly detection in the furture on the same
+
+### day 9 update
+
+-this dataset is finally finished with the predcitions and report done on the new test data after removing the outliers
+-later I will revisit this one and do the unsupervised ML and anomly detection
