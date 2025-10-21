@@ -46,3 +46,8 @@ I am solving flight price dataset in this repo, by using the FE(Featured Enginee
 
 -this dataset is finally finished with the predcitions and report done on the new test data after removing the outliers
 -later I will revisit this one and do the unsupervised ML and anomly detection
+
+### day 10(revised) update
+
+-did the unsupervised ML(clustering part only)
+-moved some files as well
