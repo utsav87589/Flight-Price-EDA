@@ -51,3 +51,7 @@ I am solving flight price dataset in this repo, by using the FE(Featured Enginee
 
 -did the unsupervised ML(clustering part only)
 -moved some files as well
+
+### day 11(revised) update
+
+-outliers(local and global part done)
