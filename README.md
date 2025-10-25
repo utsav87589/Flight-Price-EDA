@@ -55,3 +55,9 @@ I am solving flight price dataset in this repo, by using the FE(Featured Enginee
 ### day 11(revised) update
 
 -outliers(local and global part done)
+
+### day 12(revised) update
+
+-Unsupervised ML report completed
+-All the reports for both supervised and unsupervised ML have been completed,
+-Now the dataset has been completed officially, but with the time some contributions will be added.
