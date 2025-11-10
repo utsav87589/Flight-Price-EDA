@@ -66,3 +66,6 @@ I am solving flight price dataset in this repo, by using the FE(Featured Enginee
 
 ### 1.
 -modified and optimized the code and files in the algos.ipynb
+
+### 2.
+-further optimized the code in the algos.ipynb file
