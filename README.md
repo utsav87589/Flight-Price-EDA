@@ -75,3 +75,9 @@ I am solving flight price dataset in this repo, by using the FE(Featured Enginee
 - changed the file structure for the data (created seprate folders)
 - changed the path to the data in the files (removed the old path and added the new path)
 - in the outliers.ipynb file, added the function for the optimization
+
+### 4.
+- changed the path in the (unsupervised.ipynb) file for the data
+- started the preprocssing in the new file (preprocessing_v2.ipynb)
+- dropped the 'year column' from the dataset, made the copy for the tree based models
+- started the prep for the distance based models
