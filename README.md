@@ -81,3 +81,9 @@ I am solving flight price dataset in this repo, by using the FE(Featured Enginee
 - started the preprocssing in the new file (preprocessing_v2.ipynb)
 - dropped the 'year column' from the dataset, made the copy for the tree based models
 - started the prep for the distance based models
+
+### 5. 
+
+- fixed the plot issue
+- made the test.csv for distance based models
+- saved and used the scaler for the data
