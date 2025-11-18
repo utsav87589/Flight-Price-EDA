@@ -87,3 +87,9 @@ I am solving flight price dataset in this repo, by using the FE(Featured Enginee
 - fixed the plot issue
 - made the test.csv for distance based models
 - saved and used the scaler for the data
+
+### 6.
+
+- fixed the path from hard-coding to varaible type
+- pipeline to apply the outlers and scaling part made smoother
+- deleted the extra uneccesary repetitive code
