@@ -98,3 +98,8 @@ I am solving flight price dataset in this repo, by using the FE(Featured Enginee
 
 - preprocessing_v2 done
 - started the changes on the algos.ipynb(making the program more modular now)
+
+### 8.
+
+- fixed the scaler for the 'price' column for the distance based models
+- algos.ipynb finally completed
