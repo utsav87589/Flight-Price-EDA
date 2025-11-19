@@ -93,3 +93,8 @@ I am solving flight price dataset in this repo, by using the FE(Featured Enginee
 - fixed the path from hard-coding to varaible type
 - pipeline to apply the outlers and scaling part made smoother
 - deleted the extra uneccesary repetitive code
+
+### 7.
+
+- preprocessing_v2 done
+- started the changes on the algos.ipynb(making the program more modular now)
