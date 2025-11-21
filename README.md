@@ -103,3 +103,8 @@ I am solving flight price dataset in this repo, by using the FE(Featured Enginee
 
 - fixed the scaler for the 'price' column for the distance based models
 - algos.ipynb finally completed
+
+### 9.
+
+- organized the 'algos.ipynb' futher
+- ran into the scaler error again
