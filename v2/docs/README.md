@@ -15,3 +15,9 @@ limitatiions :
 
 - so, I finally came to the conclsuion to make the V2 of the project, where my main target will be to eliminate all those limitation
 and make the project more upto date as per the industry standards.
+
+Advantages of v2 : 
+1. Proper structuring of files
+2. Maintained documentation
+3. (.gitignore) file to tackle all of test code
+4. Managable code with propoer modular structure

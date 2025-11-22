@@ -3,3 +3,7 @@
 
 extras/
 *.ipynb
+
+__pycache__/
+
+*.pyc
