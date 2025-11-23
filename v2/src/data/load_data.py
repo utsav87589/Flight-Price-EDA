@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 import os
 
+## Function to load the data
+
 def load_data(file_path) : 
 
     """
@@ -25,3 +27,10 @@ def load_data(file_path) :
     else : 
         raise ValueError(f"Unsupported file type : {ext}. Allowed : CSV, XLSX, XLS")
     
+## Checking the shape of the data
+
+def get_shape(df) : 
+    return df.shape
+
+def get_nan(df) : 
+    return df.isna().sum()
