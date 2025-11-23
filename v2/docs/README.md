@@ -1,6 +1,6 @@
 ### About the project
 -Flight Price, is a dataset from kaggle, where we are given different features like Airline, Source, Destination etc.. and we have to train
-the ML models to train on these features and predict the Price of the Flight
+the ML models on these features and predict the Price of the Flight.
 
 ### About the V2
 -v2 is the version 2.0 for the project, which covers the following limitations, that were there in the v1(earlier version)
@@ -21,3 +21,5 @@ Advantages of v2 :
 2. Maintained documentation
 3. (.gitignore) file to tackle all of test code
 4. Managable code with propoer modular structure
+
+- for more information on project regarding the Feature Selection, Encoding strategies, Model training, reports, please refer to the docs folder of the project file. 
