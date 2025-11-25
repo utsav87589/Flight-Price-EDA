@@ -9,6 +9,12 @@ def value_counts(df, cols) :
 
 def one_hot(df, cols) : 
     for col in cols : 
-        col = pd.get_dummies(df[col], dtype = int, drop_first = True, prefix = col)
-        df = pd.concat([df, col], axis = 1)
+        dummies = pd.get_dummies(df[col], dtype = int, drop_first = True, prefix = col)
+        df = pd.concat([df, dummies], axis = 1)
     return df
+
+# def label_encoding(df, cols, mapping) : 
+#     for col in cols : 
+#         df[col] = df[col].apply(mapping)
+#     return df
+
