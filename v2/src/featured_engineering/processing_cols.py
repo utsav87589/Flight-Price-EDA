@@ -13,7 +13,7 @@ def one_hot(df, col) :
     return df
 
 def label_encoding(df, col, mapping) : 
-    df[col] = df[col].apply(mapping)
+    df[col] = df[col].map(mapping)
     return df
 
 def columns_to_drop(df, cols) : 
