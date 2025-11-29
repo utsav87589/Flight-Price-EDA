@@ -27,6 +27,7 @@ def label_encoding(df, col, mapping) :
 
 #---------------spliting the numerical column like Date_of_journey, Dep_time etc..
 def split_numerical(df, col) : 
+
     sample_value = str(df[col].iloc[0])
 
     if '/' in sample_value : 
@@ -37,6 +38,10 @@ def split_numerical(df, col) :
         sep = ':'
         new_cols = ['hour', 'minute']
 
+    elif 'h' or 'm' in sample_value : 
+        sep = 'h'
+        new_cols = ['in_hours', 'in_minutes']
+
     else : 
         raise ValueError((f"{col} doesn't conatin '/' or ':'"))
     
@@ -44,6 +49,19 @@ def split_numerical(df, col) :
 
     for i in range(split_df.shape[1]) : 
         df[f"{col}_{new_cols[i]}"] = split_df[i]
+
+    return df
+
+
+#------------------splitting the numerical features further for columns like Arrival_Time_minutes
+def split_numerical_further(df, col) : 
+
+    def extract_first(value) : 
+        if not isinstance(value, str) : 
+            return value
+        return value.split()[0]
+    
+    df[col] = df[col].astype(str).apply(extract_first)
 
     return df
 
