@@ -1,6 +1,6 @@
 ### Project file and folder structure
 
-- The project is borken into various Folder and subfolder, each one serving a different and unique purpose.
+- The project is borken into various Folder and subfolder, each one serving a different and unique purpose. Each folder has a readme inside it, providing the more details about it.
 
 
 ### ======= folder : Docs ==========
