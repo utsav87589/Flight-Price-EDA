@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 
-## Function to load the data
+#----------------Function to load the data
 
 def load_data(file_path) : 
 
@@ -26,11 +26,26 @@ def load_data(file_path) :
     
     else : 
         raise ValueError(f"Unsupported file type : {ext}. Allowed : CSV, XLSX, XLS")
+
     
-## Checking the shape of the data
+#------------------Checking the shape of the data
 
 def get_shape(df) : 
     return df.shape
 
+
+#-----------------checking the nan values in the dataset
 def get_nan(df) : 
     return df.isna().sum()
+
+
+#------------------checking the data type of the columns
+
+def get_info(df) : 
+    return df.info()
+
+
+#-----------------saving the data
+
+def save_data(df, path) : 
+    df.to_csv(path, index = False)
