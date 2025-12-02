@@ -154,3 +154,87 @@ non-stop    3491
 2    1566
 
 ### -----------------Column : Date_of_Jounrey
+
+- Type : Numerical
+
+- steps involved : 
+(unique value --> split --> check unique value for each individual new column, i.e day, month, year --> drop the date_of_journey and date_of_journey_year)
+
+- split operator : 
+split on the (/) operator and then make individual columns like day, month and year.
+
+
+### Drop_cols_v2 applied
+
+
+### ---------------Column : Dep_Time
+
+- Type : Numerical
+
+- steps involved : 
+(unique value --> split --> drop the column)
+
+- split operator : ':'
+
+
+### Drop_cols_v3 applied
+
+
+### ------------------Column : Arrival_time
+
+- Type : Numerical
+
+- steps involved : 
+(unique value --> split --> drop the column)
+
+- addtional : 
+column Arrival_Time_minute had 2 different types of format ('25 10 Jun' and '15'), handled it separately
+
+- split operator : ':'
+
+
+### Drop_cols_v4 applied
+
+
+### ------------------Column : Arrival_Time_minute
+
+- Type : Numerical
+
+- steps involved : 
+(unique value --> split(keeping the first part of the string only))
+
+- split operator : ' '(space bar)
+
+### ------------------Column : Duration
+
+- Type : Numerical
+
+- steps involved : 
+(unique value --> split --> Cols_drop_v5 --> unique_value_v2 --> substitute the anomly(5m))
+
+- split operator : 'h'
+
+
+### ---------------miscellaneous
+
+- 1. After these steps, I checked the df.info() to make sure the processed dataset has every column in the int form : 
+---  ------                     --------------  ----- 
+ 0   Source                     10683 non-null  int64 
+ 1   Destination                10683 non-null  int64 
+ 2   Total_Stops                10683 non-null  int64 
+ 3   Price                      10683 non-null  int64 
+ 4   Airline_IndiGo             10683 non-null  int32 
+ 5   Airline_Jet Airways        10683 non-null  int32 
+ 6   Airline_other              10683 non-null  int32 
+ 7   Additional_Info_Some info  10683 non-null  int32 
+ 8   Date_of_Journey_day        10683 non-null  object
+ 9   Date_of_Journey_month      10683 non-null  object
+ 10  Dep_Time_hour              10683 non-null  object
+ 11  Dep_Time_minute            10683 non-null  object
+ 12  Arrival_Time_hour          10683 non-null  object
+ 13  Arrival_Time_minute        10683 non-null  object
+ 14  Duration_in_hours          10683 non-null  object
+
+ - 2. After I saved the dataset (data -> intermidiate -> train.csv)
+ - 3. for reference the path of this file is (notebooks -> FE&EDA -> basic -> train -> (then this folder))
+ - 4. notebooks and data both are in the same hierarchy of the folders.
