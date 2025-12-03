@@ -1,8 +1,7 @@
 
 ## Ignore all the rough work and expirement code written in 'Extra' folder of the notebook section
 
-extras/
-*.ipynb
+notebooks/extras/
 
 __pycache__/
 
