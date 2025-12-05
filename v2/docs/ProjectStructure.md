@@ -16,9 +16,42 @@
 ### subfolders
 - (raw) : contians raw data as excel file, Data_Train. xlsx(with price feature), Test_set.xlsx(without price feature). Data_Train is our main dataset, on which the wholem logic of featured engineering of the project is based.
 
-- (intermidiate) : conatins data after featured engineering, but without transformation and scaling with same naming convention as in (raw)
+- (intermidiate) : contains data after featured engineering, but without transformation and scaling with same naming convention as in (raw)
 
 - (preprocessed) : it has further 2 folders in it (distance, trees), for (distance) after the intermidiate step, transformations, outlier removal and scaling was applied, as those models are prone to outliers. Whereas, for the (trees) after the intermidiate step only, the check was done, no outlier was removed, no scaling or transformation was done on any column
 
 
 ### ============ Folder : notebooks ============
+
+- Notebooks folder contains many subfolders, inside those subfolders are the jupyter notebooks with the code and logic behind the preprocessing of the data.
+
+### subfolders
+ - (basic) : this folder has the core preprocessing logic for the raw train and test data, for more information, please refer to the readme files inside that folder
+
+ - (trees) : data from the intermidiate folder, which after checking for the plots and some final checks is model ready
+
+ - (distance) : data from the intermidiate folder, after scalers and removing outliers is model ready for all distance based models.
+
+
+ ### ================ Folder : Reports ==============
+
+ - Contains the reports for the comparison after the final model testing in a Powerpoint/PowerBI/tableau file.
+ - has readme as well for more information
+
+
+ ### =============== Folder : src ===============
+
+- has all the repetitive python code (functions) that was used over and over again in the program, in the jupyter notebooks
+- has a seperate radme file as well
+
+
+### ================= Folder : scalers ==============
+
+- scaler objects for distance based models
+- one scaler only for 'price' column in the 'test' dataset 
+- another scaler for the rest of the columns.
+
+### ================= Folder : models ==============
+
+- it has all the models saved in it, that were used for the testing like tree based and distance based models.
+- the idea for this folder was that, if the model is trained once, it should be saved to avoid additional training each time the notebook(jupyter file is open)
