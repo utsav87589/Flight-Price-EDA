@@ -36,11 +36,20 @@ def plot_graphs(df, feature) :
     plt.show()
 
 #-----------writing the function to plot the box plots for the features after scaling to verify the things
-def plot_graphs_post_scaling(df, feature) : 
-    plt.title('Boxplot')
+def plot_graphs_post_scaling(df, df_copy, feature) : 
 
+    plt.figure(figsize = (8, 4))
+    plt.subplot(1, 2, 1)
+    plt.title('Boxplot : df')
     sns.boxplot(df[feature])
     plt.xlabel("")
     plt.ylabel("")
+
+    plt.subplot(1, 2, 2)
+    plt.title('Boxplot : df_copy')
+    sns.boxplot(df_copy[feature])
+    plt.xlabel("")
+    plt.ylabel("")
+
 
     plt.show()
