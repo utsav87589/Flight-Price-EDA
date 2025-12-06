@@ -6,3 +6,5 @@ notebooks/extras/
 __pycache__/
 
 *.pyc
+
+scalers/
