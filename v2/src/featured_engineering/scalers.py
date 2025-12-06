@@ -12,9 +12,9 @@ def scale_feature(df, cols) :
 
     #---------saving the scaler according to the column it was applied on
     if 'Price' in cols : 
-     scaler_path = '../../scalers/scaler_for_price.pkl'
+     scaler_path = '../../../scalers/scaler_for_price.pkl'
      joblib.dump(scaler, scaler_path)
 
     else : 
-     scaler_path = '../../scalers/scaler_for_rest.pkl'
-    joblib.dump(scaler, scaler_path)
+      scaler_path = '../../../scalers/scaler_for_rest.pkl'
+      joblib.dump(scaler, scaler_path)
