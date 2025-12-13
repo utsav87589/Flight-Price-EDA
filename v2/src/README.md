@@ -26,5 +26,9 @@
 7. columns_to_drop(df, cols) : drop the columns
 
 
-=====> file : plot_features
-1. plot_graphs(df, feature) : plots hist, qq and box plot (used internally, never called off explicitly into the other function)
+=====> file : plot_features.py
+1. plot_graphs(df, feature) : plots hist, qq and box plot for the numerical features.
+2. plot_graphs_post_scaling(df, df_copy, feature) : plots the box plots for the numerical feature of df and df_copy, after the sacler is applied on the main dataframe (df), (mainly for the distance based models)
+
+
+=====> file : outliers.py
