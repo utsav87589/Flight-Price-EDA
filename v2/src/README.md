@@ -31,4 +31,10 @@
 2. plot_graphs_post_scaling(df, df_copy, feature) : plots the box plots for the numerical feature of df and df_copy, after the sacler is applied on the main dataframe (df), (mainly for the distance based models)
 
 
-=====> file : outliers.py
+=====> file : outliers.py (used for the distance based models mainly)
+1. iqr_score(df, feature) : calculates the iq score for the feature, return the iqr score and q3 and q1 in the form of list : [Q, Q1, IQR].
+2. adjust_values(df, feature, lower_limit, upper_limit) : restricts the values accordingly and remove the outliers.
+
+
+=====> file : scalers.py
+1. scale_feature(df, cols, scaler_path = None) : scaler the features and then save the scaler object.
