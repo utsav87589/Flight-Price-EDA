@@ -16,3 +16,10 @@ def get_nan(df) :
 def get_info(df) : 
     return df.info()
 
+#--------------function to drop the column
+def drop_col(df, col) :
+    df.drop(col, axis = 1)
+
+#--------------function to save the data on the given path
+def save_data(df, path) : 
+    df.to_csv(path, index = False)
