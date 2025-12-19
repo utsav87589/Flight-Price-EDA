@@ -18,7 +18,7 @@ def get_info(df) :
 
 #--------------function to drop the column
 def drop_col(df, col) :
-    df.drop(col, axis = 1)
+    df.drop(col, axis = 1, inplace = True)
 
 #--------------function to save the data on the given path
 def save_data(df, path) : 
