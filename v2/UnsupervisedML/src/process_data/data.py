@@ -23,3 +23,7 @@ def drop_col(df, col) :
 #--------------function to save the data on the given path
 def save_data(df, path) : 
     df.to_csv(path, index = False)
+
+#--------------function to get the shape of the dataset
+def get_shape(df) : 
+    return df.shape
