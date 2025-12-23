@@ -7,6 +7,7 @@ import scipy.cluster.hierarchy as sc
 from sklearn.neighbors import NearestNeighbors
 
 #---------------function to plot the results like graphs and silhouette score
+### this function will be called implicitly only in this file
 def results(df, y_labels) : 
     print(silhouette_score(df, y_labels))
     plt.figure(figsize = (8, 4))
@@ -15,6 +16,12 @@ def results(df, y_labels) :
     plt.subplot(1, 2, 2)
     plt.scatter(df[:, 0], df[:, 1])
     plt.show()
+
+
+#-------------Function to plot the scatter plot for the price column
+def plot_price(df_price) : 
+    plt.scatter(df_price)
+    plt.show() 
 
 
 
@@ -65,8 +72,8 @@ def db_clusters(df, eps) :
 #========================= HM clustering =========================
 
 #-----------------function to make sample of 3000 records from the original data for the hm
-def sample_for_hm (df, n_samples = 3000, random_state = 42) : 
-    return df.sample(n = n_samples, random_state = random_state)
+def sample_for_hm (df, n_samples = 3000) : 
+    return df[:3000]
 
 #----------------function to plot dendogram for the value of k
 def plot_dendo(df_hm) : 
@@ -76,3 +83,11 @@ def plot_dendo(df_hm) :
     plt.title('Dendogram')
     plt.xlabel("sample index")
     plt.ylabel("euclidian distance")
+
+#--------------function to plot the hm clustering
+def hm_clusters(df_hm, n_clusters) : 
+    hm = AgglomerativeClustering(n_clusters = n_clusters, linkage = 'ward')
+    y_labels_hm = hm.fit_predict(df_hm)
+
+    results(df_hm, y_labels_hm)
+
