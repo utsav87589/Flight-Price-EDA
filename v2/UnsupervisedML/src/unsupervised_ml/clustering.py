@@ -17,14 +17,6 @@ def results(df, y_labels) :
     plt.scatter(df[:, 0], df[:, 1])
     plt.show()
 
-
-#-------------Function to plot the scatter plot for the price column
-def plot_price(df_price) : 
-    plt.scatter(df_price)
-    plt.show() 
-
-
-
 #========================= Kmeans clustering =========================
 
 #------------function to find the k for Kmeans clustering
@@ -40,13 +32,20 @@ def find_k(df) :
     plt.plot(range(1, 12), wcss)
 
 #-----------function to plot the scatter plots for the value of the k
-def kmeans_clutsers(df, k) : 
+def kmeans_clutsers(df, k, labels_path = None) : 
+    if labels_path is not None : 
+        kmeans = KMeans(n_clusters = k, init = 'k-means++')
+        y_labels_kmeans = kmeans.fit_predict(df)
 
-    kmeans = KMeans(n_clusters = k, init = 'k-means++')
-    y_labels = kmeans.fit_predict(df)
+        np.save(labels_path, y_labels_kmeans)
 
-    results(df, y_labels = y_labels)
+        results(df, y_labels = y_labels_kmeans)
 
+    else : 
+        kmeans = KMeans(n_clusters = k, init = 'k-means++')
+        y_labels_kmeans = kmeans.fit_predict(df)
+
+        results(df, y_labels = y_labels_kmeans)
 
 #========================= DBScan clustering =========================
 
@@ -62,11 +61,22 @@ def find_eps(df) :
     plt.plot(distances)
 
 #------------function to plot the clusters for the value of eps
-def db_clusters(df, eps) : 
-    db_scan = DBSCAN(eps = eps)
-    y_labels_db = db_scan.fit_predict(df)
+def db_clusters(df, eps, labels_path = None) : 
+    
+    if labels_path is not None : 
 
-    results(df, y_labels = y_labels_db)
+        db_scan = DBSCAN(eps = eps)
+        y_labels_db = db_scan.fit_predict(df)
+
+        np.save(labels_path, y_labels_db)
+
+        results(df, y_labels = y_labels_db)
+
+    else : 
+        db_scan = DBSCAN(eps = eps)
+        y_labels_db = db_scan.fit_predict(df)
+
+        results(df, y_labels = y_labels_db)
 
 
 #========================= HM clustering =========================
@@ -85,9 +95,51 @@ def plot_dendo(df_hm) :
     plt.ylabel("euclidian distance")
 
 #--------------function to plot the hm clustering
-def hm_clusters(df_hm, n_clusters) : 
-    hm = AgglomerativeClustering(n_clusters = n_clusters, linkage = 'ward')
-    y_labels_hm = hm.fit_predict(df_hm)
+def hm_clusters(df_hm, n_clusters, labels_path = None) : 
 
-    results(df_hm, y_labels_hm)
+    if labels_path is not None : 
+
+        hm = AgglomerativeClustering(n_clusters = n_clusters, linkage = 'ward')
+        y_labels_hm = hm.fit_predict(df_hm)
+
+        np.save(labels_path, y_labels_hm)
+
+        results(df_hm, y_labels_hm)
+
+    else : 
+        hm = AgglomerativeClustering(n_clusters = n_clusters, linkage = 'ward')
+        y_labels_hm = hm.fit_predict(df_hm)
+
+        results(df_hm, y_labels_hm)
+
+
+
+#========================= Price column vs Train Data =========================
+
+#-------------Function to plot the scatter plot for the price column with respect to the clusters for the comparison
+def plot_price_and_labels(df_price, labels_path) : 
+
+    labels = np.load(labels_path)
+    df_price = df_price.iloc[:, 0]
+
+    fig, axes = plt.subplots(2, 1, figsize=(10, 10))
+
+    # --- Scatter plot (top)
+    axes[0].scatter(labels, df_price, alpha=0.5)
+    axes[0].set_xlabel("Cluster Label")
+    axes[0].set_ylabel("Price")
+    axes[0].set_title("Price distribution across clusters")
+
+    # --- Boxplot (bottom)
+    df_plot = pd.DataFrame({
+        "cluster": labels,
+        "price": df_price
+    })
+
+    df_plot.boxplot(column="price", by="cluster", ax=axes[1])
+    axes[1].set_title("Price by Cluster")
+
+    plt.suptitle("")   # remove pandas default title
+    plt.tight_layout()
+    plt.show()
 
