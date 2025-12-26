@@ -27,3 +27,32 @@
 
 
 ##### Subfolder : unsupervised_ml
+- in this folder we have the src files that were used inside and in combination with the (scaled_clustering.ipynb, non_scaled_clustering.ipynb) files. the functions are responsible for the further work on the model ready data which includes (but not limited to) reducing the dimensionality using the pca, veryfying the co variance using the pca, applying the different clustering models and saving those labels for the later stages to verify the clusters with the price feature.
+- in this folder we have (__init__.py) file responsible to make the export of those functions possible, (clustering.py) and (pca.py) files.
+
+====> (file : pca.py)
+- this file contains : 
+1. get_corr(df) : gives the correlation between the different features of the dataset
+2. pca_and_variance(df) : fit the pca on the data frame without reducing the dimensionality and then gives the variance ratio to study the differences in different features
+3. reduce_dim(df) : reduces the dimensons of the dataset by using the pca (set to 2 for the dataset)
+
+====> (file : clustering.py)
+- this file contains : 
+1. results(df, y_labels) : gives the silhouette score, plot the scatter plot based on the clusters (never called explicitlu, used internally inside the other functions only)
+
+2. find_k(df) : find the value of the k for the kmeans clustering, using the wcss score and the elbow curve
+
+3. kmeans_clutsers(df, k, labels_path = None) : plots the kmeans clusters based on the value of the k, that we got from the above function, it also saved the labels based on the path given to it (**only incase of the train data for both scaled and non_scaled, we saved the labels and gave the bath to compare with the original price data, meanwhile, for the test data there was no actual price column that exsisted**).
+
+4. find_eps(df) : find the value of eps for the dbscan clustering by plotting the distance curve plot.
+
+5. db_clusters(df, eps, labels_path = None) : plots the dbscan clusters based on the value of the eps, that we got from the above function, it also saved the labels based on the path given to it
+
+6. sample_for_hm (df, n_samples = 3000) : reduce the size of the dataset to 3k rows(**was used for the hm clustering because of the lack of hardware support**)
+
+7. plot_dendo(df_hm) : plots the dendogram to find the value of n_clusters to use the Agglomerative clustering
+
+8. hm_clusters(df_hm, n_clusters, labels_path = None) : plots the hm clusters based on the value of the n_clusters, that we got from the above function, it also saved the labels based on the path given to it
+
+9. plot_price_and_labels(df_price, labels_path) : plots the scatter plot and box plot for the original price data with respect to the different labels from above functions that were saved later
+- (**for the hm, the size for the both train dataset and the price data was down from 10k to 3k**)
