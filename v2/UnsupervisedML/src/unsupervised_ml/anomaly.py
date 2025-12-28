@@ -52,3 +52,37 @@ def outliers_isolation_forest(df, contamination) :
     outliers = np.where(predictions < 0)
 
     plot_anomalies(df, outliers)
+
+
+# ====================== Local outlier factor (LOF) =========================
+
+### for the lof, I consider n_neighbors as 5 and 4, algorithm = 'auto' and leaf_size = 30
+### as for the local outliers we wanna detect wuth respect to the closest clusters rather than
+### finding out the overall outliers
+
+#----------------function to plot the LOF
+def outliers_lof(df, n) : 
+
+    lof = LocalOutlierFactor(n_neighbors = n, algorithm = 'auto', leaf_size = 30)
+    predictions = lof.fit_predict(df)
+
+    outliers = np.where(predictions < 1)
+
+    plot_anomalies(df, outliers)
+
+
+# ====================== DBScan for anomaly detection =========================
+
+### just like for the lof, for dbscan also I considered 2 values of eps,
+### one that we got from the clustering by plotting distance indices curve
+### second as the default value of 0.1
+
+#---------------function to plot the dbscan for anomaly
+def outliers_dbscan(df, eps) : 
+
+    db = DBSCAN(eps = eps)
+    predictions = db.fit_predict(df)
+
+    outliers = np.where(predictions < 1)
+
+    plot_anomalies(df, outliers)
