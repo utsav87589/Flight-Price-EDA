@@ -73,7 +73,7 @@
 
 ##### ********************File : non_scaled_clustering.ipynb*************************
 
-- in this file, we have the code/logic for how after the processing of the data, we performed the functions/methods on the non_scaled data (including train, test and price) to finally made the clusters in the end eventually. please refer to the exact file (named as : scaled_clutsering.ipynb in the 'notebooks' folder, currently you are in the 'docs' folder) to find more information about the code or the flowchart to get the hint of the analogy behind the process. 
+- in this file, we have the code/logic for how after the processing of the data, we performed the functions/methods on the non_scaled data (including train, test and price) to finally made the clusters in the end eventually. please refer to the exact file (named as : non_scaled_clutsering.ipynb in the 'notebooks' folder, currently you are in the 'docs' folder) to find more information about the code or the flowchart to get the hint of the analogy behind the process. 
 - this file is identical and was copy pasted using the scaled_clustering file, only the paths were modified because the pipeline that they followed was the exact same pipeline with no practical differences in them.
 
 - flow : 
@@ -127,3 +127,78 @@
 33. plot the boxplot and the scatter for the price vs the db_labels saved during the clustering on the train phase -->
 34. reduce the size of price from 10k to 3k for the hm clustering to avoid the shape mismatching -->
 35. plot the boxplot and the scatter for the price vs the hm_labels saved during the clustering on the train phase.
+
+
+##### ********************File : scaled_anomaly.ipynb*************************
+
+- in this file we have the code and logic for the anomaly detection on the scaled data (both train and test). price data was not included as for the target feature we don't find the outliers at all in unsupervised ml.
+- below is the flow of the code explaining the file in brief, for detailed information please refer to the flowchart or the exact jupyter file.
+
+- flow : 
+1. setup the autoreloader, setup the path for the sys to import the reusable function from the src file (src > unsupervised_ml > anomaly.py) -->
+2. loaded the functions from the src files -->
+3. setup the data path for train and test data -->
+
+=========== Train data ===================
+
+4. loaded the train data -->
+5. get the shape -->
+6. checked the nan values -->
+7. reduced the dimensons to 2 using the pca -->
+8. verified the shape again -->
+9. find the threshold, scores to calculate the contamination for the anomaly detection using Isolation forest -->
+10. use the value of contamination to plot the outliers using the Isolation forest -->
+11. assumed the 2 values of n (n = 5 and n = 4) to plot the outliers using the Local Outlier factor (LOF) -->
+12. used 2 values of eps (first one from the clustering while working with the DBscan and other one as 0.1) to plot the outliers using DBScan -->
+
+=========== Test data ===================
+
+- (** for the test data, the exact same steps as for the train data were followed to do the anomaly detection)
+
+13. loaded the test data -->
+14. get the shape -->
+15. checked the nan values -->
+16. reduced the dimensons to 2 using the pca -->
+17. verified the shape again -->
+18. find the threshold, scores to calculate the contamination for the anomaly detection using Isolation forest -->
+19. use the value of contamination to plot the outliers using the Isolation forest -->
+20. assumed the 2 values of n (n = 5 and n = 4) to plot the outliers using the Local Outlier factor (LOF) -->
+21. used 2 values of eps (first one from the clustering while working with the DBscan and other one as 0.1) to plot the outliers using DbScan.
+
+
+##### ********************File : non_scaled_anomaly.ipynb*************************
+
+- in this file we have the code and logic for the anomaly detection on the non_scaled data (both train and test). price data was not included as for the target feature we don't find the outliers at all in unsupervised ml.
+- below is the flow of the code explaining the file in brief, for detailed information please refer to the flowchart or the exact jupyter file.
+- this file is identical and was copy pasted using the scaled_anomaly.ipynb, only the paths were modified because the pipeline that they followed was the exact same pipeline with no practical differences in them.
+
+- flow : 
+1. setup the autoreloader, setup the path for the sys to import the reusable function from the src file (src > unsupervised_ml > anomaly.py) -->
+2. loaded the functions from the src files -->
+3. setup the data path for train and test data -->
+
+=========== Train data ===================
+
+4. loaded the train data -->
+5. get the shape -->
+6. checked the nan values -->
+7. reduced the dimensons to 2 using the pca -->
+8. verified the shape again -->
+9. find the threshold, scores to calculate the contamination for the anomaly detection using Isolation forest -->
+10. use the value of contamination to plot the outliers using the Isolation forest -->
+11. assumed the 2 values of n (n = 5 and n = 4) to plot the outliers using the Local Outlier factor (LOF) -->
+12. used 2 values of eps (first one from the clustering while working with the DBscan and other one as 0.1) to plot the outliers using DBScan -->
+
+=========== Test data ===================
+
+- (** for the test data, the exact same steps as for the train data were followed to do the anomaly detection)
+
+13. loaded the test data -->
+14. get the shape -->
+15. checked the nan values -->
+16. reduced the dimensons to 2 using the pca -->
+17. verified the shape again -->
+18. find the threshold, scores to calculate the contamination for the anomaly detection using Isolation forest -->
+19. use the value of contamination to plot the outliers using the Isolation forest -->
+20. assumed the 2 values of n (n = 5 and n = 4) to plot the outliers using the Local Outlier factor (LOF) -->
+21. used 2 values of eps (first one from the clustering while working with the DBscan and other one as 0.1) to plot the outliers using DbScan.
