@@ -2,13 +2,14 @@
 - this folder contains all the resusuable functions in form of the python files, that were used in the jupyter notebook files. Further there are many subfolder inside of it, follow this file to find out more about those subfolders and individual purpose they serve.
 
 
-### ----------- subfolder : data ----------------
+### ----------- subfolder : basic ----------------
 
-- this folder has only one python file : (load_data.py), this file conatins 
+- this folder has only one python file : (load_check_data.py), this file conatins 
+
 1. load_data(file_path) : this function is used to load the particular data file, given the path of that file
-2. get_shape(df) : get the shape of the dataset
-3. get_nan(df) : get the null value count in the dataset
-4. get_info(df) : check for the type of columns
+2. get_nan_shape(df) : get the shape of the dataset and the nan values inside the dataset
+3. get_info(df) : check for the type of columns
+4. drop_cols(df, col) : drop the given column from the data frame
 5. save_data(df, path) : save the final data
 
 
@@ -17,6 +18,8 @@
 
 
 =====> file : processing_cols.py
+
+
 1. unique_values(df, col) : gets the unique values present inside a particular column
 2. value_counts(df, col) : gets the value count for each individual categories in a column
 3. one_hot(df, col) : applies the one hot encoding to the categorical column
@@ -27,28 +30,38 @@
 
 
 =====> file : plot_features.py
+
+
 1. plot_graphs(df, feature) : plots hist, qq and box plot for the numerical features.
 2. plot_graphs_post_scaling(df, df_copy, feature) : plots the box plots for the numerical feature of df and df_copy, after the sacler is applied on the main dataframe (df), (mainly for the distance based models)
 
 
 =====> file : outliers.py (used for the distance based models mainly)
+
+
 1. iqr_score(df, feature) : calculates the iq score for the feature, return the iqr score and q3 and q1 in the form of list : [Q, Q1, IQR].
 2. adjust_values(df, feature, lower_limit, upper_limit) : restricts the values accordingly and remove the outliers.
 
 
 =====> file : scalers.py
+
+
 1. scale_feature(df, cols, scaler_path = None) : scaler the features and then save the scaler object.
 
 
-### ----------- subfolder : models ------------------------------
+### ----------- subfolder : predictions ------------------------------
+
+
 - this folder has all the files that were used once the preprocessing part was done. has the models and prediction part in it
 
 
 =====> file : split_data.py
+
 1. data_split(df, price = None) : split the data into the train/test data or eval data, depending on the input given.
 
 
 =====> file : pred_plot_trees.py
+
 1. metrices(y_test, y_pred) : has the different metrices that compare the predicted ones to the actual ones. (called implicitly, never explicitly)
 
 2. plot(y_test, y_pred) : plot the scatter plot and best fit line to compare the predictions. (called implicitly, never explicitly)
@@ -61,6 +74,7 @@
 
 
 =====> file : pred_plot_distance.py
+
 - this file is very similar to the pred_plot_trees.py file, with same function name and same sequence with the only difference being with the scaler.
 1. metrices(y_test, y_pred) : has the different metrices that compare the predicted ones to the actual ones. (called implicitly, never explicitly)
 
