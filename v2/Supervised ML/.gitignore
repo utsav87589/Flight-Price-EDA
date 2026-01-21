@@ -2,6 +2,7 @@
 ## Ignore all the rough work and expirement code written in 'Extra' folder of the notebook section
 
 notebooks/extras/
+test_notebooks/
 
 __pycache__/
 
