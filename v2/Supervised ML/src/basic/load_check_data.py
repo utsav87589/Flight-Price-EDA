@@ -30,8 +30,8 @@ def load_data(file_path) :
     
 ### function to check the shape and the nan values inside the dataset
 
-def get_nan_shape(df) : 
-    print(f"shape : {df.shape} \n{df.isna().sum()}")
+def get_nan_duplicates_shape(df) : 
+    print(f"shape : {df.shape} \nduplicate values : {df.duplicated().sum()} \n{df.isna().sum()}")
 
 #------------------checking the data type of the columns
 
