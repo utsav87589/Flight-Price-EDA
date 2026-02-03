@@ -26,4 +26,6 @@ def apply_one_hot(df, cols) :
 
 
 ### function to apply the label encoding to the given column
+def apply_label_encode(df, col, labels) : 
 
+    df[col] = df[col].map(labels)
