@@ -6,6 +6,8 @@ import numpy as np
 def get_format(df, col, patterns) : 
 
     print(df[col].astype(str).str.len().value_counts())
+    print(f"total records : {df.shape[0]}")
+
 
     for name, pat in patterns.items():
         count = df[col].astype(str).str.match(pat).sum()
@@ -31,7 +33,7 @@ def split_numericals(df, col, sep, new_cols) :
 def check_value_counts_numericals(df, cols) : 
 
     for col in cols : 
-        print(f"{df[col].nunique()}")
+        print(f"{df[col].nunique()} \n{df[col].value_counts()}")
 
 
 ### function to drop the column from the newly created numerical columns
