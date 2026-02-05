@@ -22,7 +22,7 @@ def split_numericals(df, col, sep, new_cols) :
     split_df = df[col].str.split(sep, expand = True)
 
     for i in range(split_df.shape[1]) : 
-        df[f"{col}_{new_cols[i]}"] = split_df[i]
+        df[f"{new_cols[i]}"] = split_df[i]
 
     #-----------then dropping the old column
 
