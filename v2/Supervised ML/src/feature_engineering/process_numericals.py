@@ -21,8 +21,8 @@ def split_numericals(df, col, sep, new_cols) :
 
     split_df = df[col].str.split(sep, expand = True)
 
-    for i in range(split_df.shape[1]) : 
-        df[f"{new_cols[i]}"] = split_df[i]
+    for i, name in enumerate(new_cols) : 
+        df[f"{col}_{new_cols[i]}"] = split_df[i]
 
     #-----------then dropping the old column
 
@@ -36,7 +36,7 @@ def check_value_counts_numericals(df, cols) :
         print(f"{df[col].nunique()} \n{df[col].value_counts()}")
 
 
-### function to drop the column from the newly created numerical columns
+### function to drop the column from the old/new numerical columns
 def drop_cols_numerical(df, col) : 
     
     df.drop(col, axis = 1, inplace = True)
