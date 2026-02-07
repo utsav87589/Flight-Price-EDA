@@ -40,3 +40,10 @@ def check_value_counts_numericals(df, cols) :
 def drop_cols_numerical(df, col) : 
     
     df.drop(col, axis = 1, inplace = True)
+    
+
+### function to change the data type of the numerical columns
+def change_dtype_numericals(df, cols, target_type) : 
+
+    for col in cols : 
+        df[col] = df[col].astype(target_type)
