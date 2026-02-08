@@ -7,7 +7,7 @@
 - this folder has only one python file : (load_check_data.py), this file conatins 
 
 1. load_data(file_path) : this function is used to load the particular data file, given the path of that file
-2. get_nan_shape(df) : get the shape of the dataset and the nan values inside the dataset
+2. get_nan_duplicates_shape(df) : get the shape of the dataset, nan and dupliactes value inside the dataset
 3. get_info(df) : check for the type of columns
 4. drop_cols(df, col) : drop the given column from the data frame
 5. save_data(df, path) : save the final data
@@ -34,13 +34,6 @@
 
 1. plot_graphs(df, feature) : plots hist, qq and box plot for the numerical features.
 2. plot_graphs_post_scaling(df, df_copy, feature) : plots the box plots for the numerical feature of df and df_copy, after the sacler is applied on the main dataframe (df), (mainly for the distance based models)
-
-
-=====> file : outliers.py (used for the distance based models mainly)
-
-
-1. iqr_score(df, feature) : calculates the iq score for the feature, return the iqr score and q3 and q1 in the form of list : [Q, Q1, IQR].
-2. adjust_values(df, feature, lower_limit, upper_limit) : restricts the values accordingly and remove the outliers.
 
 
 =====> file : scalers.py
