@@ -17,29 +17,40 @@
 - one of the core folder in the entire project. it has many python files, each one with it's own uniwue purpose.
 
 
-=====> file : processing_cols.py
+=====> file : handling_duplicates.py
+- get_duplicates(df) : get the duplicates in the dataset
+- drop_duplicates(df) : drop the duplicates from the dataset
 
 
-1. unique_values(df, col) : gets the unique values present inside a particular column
-2. value_counts(df, col) : gets the value count for each individual categories in a column
-3. one_hot(df, col) : applies the one hot encoding to the categorical column
-4. label_encoding(df, col, mapping) : applies the label encoding to the feature based on the mapping given
-5. split_numerical(df, col) : splits the numerical column based on the operators(inside of the function is if-else condition)
-6. split_numerical_further(df, col) : further splits the some numerical columns, that needs the more processing, even after first split
-7. columns_to_drop(df, cols) : drop the columns
+=====> file : handling_nan.py
+- get_nan_location(df, col) : get the location of the nan
+- drop_nan_record(df, record_index) : drop the particular nan value at the certain index
+
+
+=====> file : process_categoricals.py
+- get_nunique_value_counts(df, cols) : gets the unique values inside the column(s)
+- apply_one_hot(df, cols) : applies one hot encoding to the column(s)
+- apply_label_encode(df, col, labels) : apply label encoding to the column, based on the labels given
+
+
+=====> file : process_numericals.py
+- get_format(df, col, patterns) : get the different record patterns in the column
+- split_numericals(df, col, sep, new_cols) : split the numerical columns based on the given seperator and make the new columns
+- check_value_counts_numericals(df, cols) : check the value counts (at feature engineering stage)
+- drop_cols_numerical(df, col) : drop the columns(newly formed/ old numerical columns)
+- change_dtype_numericals(df, cols, target_type) : change the data type for the columns(numericals in this case)
+
+
+=====> file : scale_transform.py
+- apply_transform_boxcox(df, cols) : apply the boxcox transformation to a column(s)
+- drop_pre_post_transformation(df, cols) : drops the column(s) after apllying the transformation
+- scale_train(df, cols_to_scale, scaler_path) : scale the train data only, save the scaler to the given path
+- scale_valid(df, cols_to_scale, scaler_path) : scale the valid data by loading the trained scaler from the training data
 
 
 =====> file : plot_features.py
-
-
-1. plot_graphs(df, feature) : plots hist, qq and box plot for the numerical features.
-2. plot_graphs_post_scaling(df, df_copy, feature) : plots the box plots for the numerical feature of df and df_copy, after the sacler is applied on the main dataframe (df), (mainly for the distance based models)
-
-
-=====> file : scalers.py
-
-
-1. scale_feature(df, cols, scaler_path = None) : scaler the features and then save the scaler object.
+- plot_graphs(df, cols) : plot the graphs (hist, qq and boxplot) for the numerical columns
+- plot_graphs_post_scaling(df, df_copy, cols) : plot the boxplot for the numerical features(pre and post scaling for the comparison)
 
 
 ### ----------- subfolder : predictions ------------------------------
