@@ -60,32 +60,17 @@
 
 
 =====> file : split_data.py
-
-1. data_split(df, price = None) : split the data into the train/test data or eval data, depending on the input given.
-
-
-=====> file : pred_plot_trees.py
-
-1. metrices(y_test, y_pred) : has the different metrices that compare the predicted ones to the actual ones. (called implicitly, never explicitly)
-
-2. plot(y_test, y_pred) : plot the scatter plot and best fit line to compare the predictions. (called implicitly, never explicitly)
-
-3. plot_and_pred_train(X_train, X_test, y_train, y_test, model, model_path) : train the model and predict on the test data, then save the model to the given path. calls the metrices() and plot() functions to compare the results to the actual one
-
-4. best_model_pred(X_eval, best_model_path) : after finding the best model with best results from plot_and_pred_train() function, it is given the best model to predict on the eval data and then it returns those predictions that are being saved later.
-
-5. other_model_pred(X_eval, y_pred_best, other_model_path) : other model predicts on the eval data, then results are compared with the best model predictions on the eval data
+- split_data(df, target_feature) : split the data around the target feature (train-test split), only for the train data
+- verify_split(X_train, X_test, y_train, y_test) : verify the split of the data, by checking out their shape
 
 
-=====> file : pred_plot_distance.py
+=====> file : pred_and_plot.py
+- plot_metrices(y_test, y_pred) : find out the comparison metrices for the model performance during the training phase (always used internally, never called off externally in notebooks)
 
-- this file is very similar to the pred_plot_trees.py file, with same function name and same sequence with the only difference being with the scaler.
-1. metrices(y_test, y_pred) : has the different metrices that compare the predicted ones to the actual ones. (called implicitly, never explicitly)
+- plot_graphs(y_test, y_pred) : plot the graphs for the true vs test data during the model training phase (used internally inside the file, never called off exlicitly in the notebook files)
 
-2. plot(y_test, y_pred) : plot the scatter plot and best fit line to compare the predictions. (called implicitly, never explicitly)
+- pred_train_model(X_train, X_test, y_train, y_test, model, model_path, scaler_price_path = None) : train the models(tree and distance based) on the train data and then save those models for the inference part (predictions on the valid data), in this function we called 'plot_metrices()' and 'plot_graphs()' functions, if scaler path is provided then it's for the distance based models else for the trees
 
-3. plot_and_pred_train(X_train, X_test, y_train, y_test, model, model_path, scaler) : train the model and predict on the test data, then save the model to the given path. calls the metrices() and plot() functions to compare the results to the actual one, but after training and predictions the price scaler object is called to inverse scale and then the metrices() and plot() functions are being called.
+- best_model_predict(df, best_model_path, scaler_price_path = None) : after finding the best model (for distance and trees) we load that trained model and predict on the valid data as a benchmark (scaler logic is same as for the pred_train_model())
 
-4. best_model_pred(X_eval, best_model_path, scaler) : after finding the best model with best results from plot_and_pred_train() function, it is given the best model to predict on the eval data and then using the same price scaler object, inverse transformation is being used then the predictions are returned.
-
-5. other_model_pred(X_eval, y_pred_best, other_model_path, scaler) : other model predicts on the eval data, then inverse transformation applied, then the results are compared with the best model predictions on the eval data.
+- other_model_predict(df, y_pred_best_model, other_model_path, scaler_price_path = None) : other pretrained and saved models predict on the valid data and then being compared with the best model (logic for scaler is same as 'pred_train_model' and 'best_model_predict')
