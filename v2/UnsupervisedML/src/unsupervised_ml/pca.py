@@ -10,7 +10,7 @@ def get_corr(df) :
 
     return corr
 
-#----------------function to return the explained ratio
+#----------------function to return the explained variance ratio
 def pca_and_variance(df) : 
     pca = PCA()
 
@@ -22,7 +22,7 @@ def pca_and_variance(df) :
     return arr
 
 
-#--------------function to reduce the dimensionality of the datagrame to 2
+#--------------function to reduce the dimensionality of the dataframe to 2
 def reduce_dim(df) : 
     pca = PCA(n_components = 2)
 
