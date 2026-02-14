@@ -29,3 +29,8 @@ def reduce_dim(df) :
     df_pca = pca.fit_transform(df)
 
     return df_pca
+
+
+### function to check the shape
+def get_shape(df) : 
+    return df.shape
