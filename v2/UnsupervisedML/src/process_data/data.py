@@ -7,10 +7,9 @@ def load_data(df_path) :
     return df
 
 
-#--------------function to perform initial check : nan values
-def get_nan(df) : 
-    return df.isna().sum()
-
+#--------------function to perform initial check : nan values, shape and duplicates
+def get_nan_duplicates_shape(df) : 
+    print(f"Shape : {df.shape} \nDuplicates : {df.duplicated().sum()} \n{df.isna().sum()}")
 
 #--------------function to perform initial check : get_info
 def get_info(df) : 
@@ -23,7 +22,3 @@ def drop_col(df, col) :
 #--------------function to save the data on the given path
 def save_data(df, path) : 
     df.to_csv(path, index = False)
-
-#--------------function to get the shape of the dataset
-def get_shape(df) : 
-    return df.shape
